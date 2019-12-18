@@ -4,14 +4,24 @@ let game = {
     nextQuestionIndex: 0,
     run(){
         if(!this.isQuestionExists()){
-            console.log(`Игра окончена`);
+            console.log(`Игра окончена, Ваш счет ${this.score}`);
+            this.nextQuestionIndex = 0;
+            this.score = 0;
+            if (confirm("Хотите сыграть еще раз?")){
+                this.run();
+            }
+            return;
         }
-        let rusult = leader.askQuestion(questions[this.nextQuestionIndex]);
-        
+        let result = leader.askQuestion(questions[this.nextQuestionIndex]);
+        if(result){
+            this.score++;
+        }
+        this.nextQuestionIndex++;
+        this.run();
     },
     isQuestionExists(){
         return questions[this.nextQuestionIndex] !== undefined;
     }
 };
 
-console.log('Напишите game.run(), чтобы начать игру')
+console.log('Напишите game.run(), чтобы начать игру');
