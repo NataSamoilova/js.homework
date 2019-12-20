@@ -1,0 +1,14 @@
+
+.wrapper{
+    display: flex;
+}
+.wrapper .product{
+    margin-right: 15px;
+    text-align: center;
+}
+h2{
+    margin: 10px 0;
+}
+button{
+    margin-top: 10px;
+}
