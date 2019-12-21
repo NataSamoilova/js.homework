@@ -5,9 +5,15 @@
 .wrapper .product{
     margin-right: 15px;
     text-align: center;
+    width: 200px;
 }
 h2{
     margin: 10px 0;
+}
+
+img{
+    display: block;
+
 }
 button{
     margin-top: 10px;

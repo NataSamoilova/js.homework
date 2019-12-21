@@ -30,8 +30,26 @@ function handleClick(clickedButtonEvent){
 }
 
 /**
- * 
- * @param {*} card 
+ * Функция скрывает описание товара и возвращает карточку
+ * @param {object} card 
+ * @param {HTMLDivElement} card.wrap 
+ * @param {HTMLDivElement} card.img 
+ * @param {HTMLDivElement} card.productName 
+ * @param {HTMLButtonElement} card.button 
+ */
+function hideMoreText(card){
+    card.img.style.display = 'block';
+    card.wrap.querySelector('.desc').remove();
+    card.button.innerText = 'Подробнее';
+}
+
+/**
+ * Функция показывает описание товара
+ * @param {object} card 
+ * @param {HTMLDivElement} card.wrap 
+ * @param {HTMLDivElement} card.img 
+ * @param {HTMLDivElement} card.productName 
+ * @param {HTMLButtonElement} card.button 
  */
 function showMoreText(card){
     card.img.style.display = 'none';
