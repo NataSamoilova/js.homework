@@ -9,6 +9,11 @@ let app = {
         let board = this.generateBoard();
         //добавляем доску в body
         document.body.innerHTML = board;
+
+        //добавляем колонку с номерами строк
+        this.insertRowsNumbers();
+        //добавляем строку с названиями колонок
+        this.insertColsChars();
     },
 
     /**
@@ -70,6 +75,32 @@ let app = {
     generateField(color, rowNumber, colChar) {
         return `<td data-rownum="${rowNumber}" data-colchar="${colChar}" class="${color}"></td>`;
 
+    },
+
+    /**
+     * Метод вставляет на существующую доску колонку слева, с указанием номера строки
+     */
+    insertRowsNumbers() {
+        let trs = document.querySelectorAll('tr');
+        for (let i = 0; i < trs.length; i++) {
+            let td = document.createElement('td');
+            td.innerText = this.config.rows[i];
+            trs[i].insertAdjacentElement("afterbegin", td);
+        }
+    },
+
+    /**
+     * Метод создает строку tr с названиями колонок в виде букв, а также в начале 
+     * вставляет пустую ячейку, которая идет под цифрами
+     */
+    insertColsChars() {
+        let tr = document.createElement('tr');
+        tr.innerHTML += '<td></td>';
+        for (let i = 0; i < this.config.cols.length; i++) {
+            tr.innerHTML += `<td>${this.config.cols[i]}</td>`;
+        }
+        let tbody = document.querySelector('tbody');
+        tbody.insertAdjacentElement("beforeend", tr);
     },
 };
 

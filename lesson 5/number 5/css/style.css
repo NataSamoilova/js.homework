@@ -17,7 +17,7 @@ td{
     background: black;
 }
 
-tr:last-child td:first-child{
+/*tr:last-child td:first-child{
     border-left: none;
     border-bottom: none;
-}
+}*/
