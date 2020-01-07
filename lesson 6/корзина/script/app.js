@@ -28,9 +28,6 @@ let basket = {
      * @param {MouseEvent} event
      */
     removeProductListener(event) {
-        //console.log(this); this будет указывать на кнопку, а не на объект basket
-        //здесь мы используем basket вместо this, потому что контекст вызова не имеет
-        //этих методов и нам надо явно обратиться к нашему объекту корзины
         basket.removeProduct(event);
         basket.renderTotalSum();
     },
@@ -41,8 +38,6 @@ let basket = {
     addRemoveBtnsListeners() {
         let btns = document.querySelectorAll('.productRemoveBtn');
         for (let i = 0; i < btns.length; i++) {
-            //важно указать именно this.removeProductListener, чтобы это была одна и та же
-            //функция, а не несколько одинаковых.
             btns[i].addEventListener('click', this.removeProductListener);
         }
     },
